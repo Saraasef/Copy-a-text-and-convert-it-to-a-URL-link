@@ -1,0 +1,13 @@
+    const dummy = document.createElement('a');
+    const whereto = window.location.href;
+    dummy.href = whereto;
+    dummy.innerText = refNumber;
+    dummy.id = 'tempanchor';
+    document.body.appendChild(dummy);
+    const range = document.createRange();
+    range.selectNode(dummy);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
